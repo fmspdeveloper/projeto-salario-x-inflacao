@@ -66,16 +66,21 @@ function listarOpcaoSelecionada() {
   }
 
   function compararSalarioComIPCA() {
-    console.log('Comparação entre Salário Mínimo e IPCA');
-    for (let i = 0; i < salarios.length; i++) {
-      const ano = salarios[i].ano;
-      const salario = salarios[i].salario;
-      const ipcaAno = ipca.find(item => item.ano === ano);
-      if (ipcaAno) {
-        const ipca = ipcaAno.ipca;
-        console.log(`Ano: ${ano}, Salário Mínimo: R$ ${salario}, IPCA: ${ipca}%`);
-      }
+    console.log('Comparação entre Salário Mínimo e IPCA e calcular a diferença do ano anterior com o atual');
+    for (let i = 1; i < salarios.length; i++) {
+      const anoAtual = salarios[i].ano;
+      const salarioAtual = salarios[i].salario;
+      const ipcaAtual = ipca[i].ipca;
+      const salarioAnterior = salarios[i - 1].salario;
+      const ipcaAnterior = ipca[i - 1].ipca;
+
+      const diferencaSalario = salarioAtual - salarioAnterior;
+      const diferencaIPCA = ipcaAtual - ipcaAnterior;
+      const crescimento = diferencaIPCA.toFixed(2);
+
+      console.log(`Ano: ${anoAtual}, Salário Mínimo: R$ ${salarioAtual}, IPCA: ${ipcaAtual}%, Diferença Salário: R$ ${diferencaSalario}, Diferença IPCA: ${crescimento}%`);
     }
+
   }
 
 }
