@@ -51,22 +51,23 @@ function listarOpcaoSelecionada() {
     listarOpcaoSelecionada();
   }
 
-  function listarSalarios(){
+  function listarSalarios() {
     console.log('salarios minimos');
-    for(let i = 0; i < salarios.length; i++){
+    for (let i = 0; i < salarios.length; i++) {
       console.log(`Ano: ${salarios[i].ano}, Salário Mínimo: R$ ${salarios[i].salario}`);
     }
   }
 
-  function listarIPCA(){
+  function listarIPCA() {
     console.log('IPCA');
-    for(let i = 0; i < ipca.length; i++){
+    for (let i = 0; i < ipca.length; i++) {
       console.log(`Ano: ${ipca[i].ano}, IPCA: ${ipca[i].ipca}%`);
     }
   }
-  function compararSalarioComIPCA(){
+
+  function compararSalarioComIPCA() {
     console.log('Comparação entre Salário Mínimo e IPCA');
-    for(let i = 0; i < salarios.length; i++){
+    for (let i = 0; i < salarios.length; i++) {
       const ano = salarios[i].ano;
       const salario = salarios[i].salario;
       const ipcaAno = ipca.find(item => item.ano === ano);
