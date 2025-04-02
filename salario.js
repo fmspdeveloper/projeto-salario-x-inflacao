@@ -37,6 +37,8 @@ function listarOpcaoSelecionada() {
   console.log('3 - Comparar salário mínimo com IPCA');
   console.log('4 - Sair');
   console.log('Selecione uma opção: ');
+  const data = new Date();
+  console.log(`Data de hoje: ${data.toLocaleDateString()}`);
   const opcao = input.questionInt('Opcao: ');
   if (opcao === 1) {
     listarSalarios();
@@ -77,8 +79,8 @@ function listarOpcaoSelecionada() {
       const diferencaSalario = salarioAtual - salarioAnterior;
       const diferencaIPCA = ipcaAtual - ipcaAnterior;
       const crescimento = diferencaIPCA.toFixed(2);
-
       console.log(`Ano: ${anoAtual}, Salário Mínimo: R$ ${salarioAtual}, IPCA: ${ipcaAtual}%, Diferença Salário: R$ ${diferencaSalario}, Diferença IPCA: ${crescimento}%`);
+
     }
 
   }
